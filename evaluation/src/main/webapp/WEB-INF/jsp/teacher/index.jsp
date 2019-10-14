@@ -105,7 +105,7 @@
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('查看得分','welcome1.html')">
+                                <a onclick="xadmin.add_tab('查看得分','${pageContext.request.contextPath}/teacher/score?teacherid=${teach.teacherid}')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>查看得分</cite></a>
                             </li>   
@@ -130,7 +130,7 @@
                 </div>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                        <iframe src='welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
                     </div>
                 </div>
                 <div id="tab_show"></div>

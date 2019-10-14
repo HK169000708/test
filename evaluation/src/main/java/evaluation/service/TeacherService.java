@@ -1,11 +1,14 @@
 package evaluation.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import evaluation.dao.TeacherDao;
 import evaluation.entity.Course;
+import evaluation.entity.Score_V;
 import evaluation.entity.Teacher;
+import evaluation.entity.Teacher_V;
 
 @Service
 public class TeacherService {
@@ -113,6 +116,73 @@ public int myupdate(Teacher teacher){
 		}
 		return 2;			
 	}
+	
+	//查看得分
+			public List<Teacher_V> getClass(int teacherid){
+				return teacherDao.getClassa(teacherid);
+			}
+			//查询某班积分数列表
+			public List<Score_V> getScore(int teachingid,int classid){
+				return teacherDao.getScore(teachingid, classid);
+			}
+			
+			public List<Object> getClassa(int teacherid){
+				List<Teacher_V> list =teacherDao.getClassa(teacherid);
+				
+				List<Score_V> list2 = new ArrayList<>();
+				int q0sum=0;
+				int q1sum=0;
+				int q2sum=0;
+				int q3sum=0;
+				int q4sum=0;
+				int q5sum=0;
+				int q6sum=0;
+				int q7sum=0;
+				int q8sum=0;
+				int q9sum=0;
+				//获得  
+				for(Teacher_V t:list) {
+					List<Score_V> tempList = teacherDao.getScore(t.getTeachingid(), t.getClassid());
+					for(Score_V s:tempList) {
+						list2.add(s);
+					}
+					
+				}
+				//算出某班总得分
+				for(Score_V s:list2) {
+						q0sum+=s.getQuestion0();
+						q1sum+=s.getQuestion1();
+						q2sum+=s.getQuestion2();
+						q3sum+=s.getQuestion3();
+						q4sum+=s.getQuestion4();
+						q5sum+=s.getQuestion5();
+						q6sum+=s.getQuestion6();
+						q7sum+=s.getQuestion7();
+						q8sum+=s.getQuestion8();
+						q9sum+=s.getQuestion9();
+					
+					
+				}
+				//获得某班各项总得分
+				List<Object> list3 =new ArrayList<>();
+				int qsum=q0sum+q1sum+q2sum+q3sum+q4sum+q5sum+q6sum+q7sum+q8sum+q9sum;
+				list3.add(q0sum);
+				list3.add(q1sum);
+				list3.add(q2sum);
+				list3.add(q3sum);
+				list3.add(q4sum);
+				list3.add(q5sum);
+				list3.add(q6sum);
+				list3.add(q7sum);
+				list3.add(q8sum);
+				list3.add(q9sum);
+				list3.add(qsum);
+				return list3;
+			}
+			
+			
+			
+
 
 
 

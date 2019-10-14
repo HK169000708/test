@@ -50,5 +50,12 @@ public class Teacher_V {
 	private String classname;
 	private int teacherid;
 	private String teachername;
+	private Score_V sv;
+	public Score_V getSv() {
+		return sv;
+	}
+	public void setSv(Score_V sv) {
+		this.sv = sv;
+	}
 
 }

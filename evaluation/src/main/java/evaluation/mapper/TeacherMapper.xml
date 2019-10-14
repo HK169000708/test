@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
       <select id="getTeachersmajor" resultMap="teachertm">
-      	select * from teacher,major where	teacher.majorid=major.majorid order by teacherid desc;
+      	select * from teacher,major where	teacher.majorid=major.majorid 
       </select>
 
 		<!-- 教师编号密码查询 -->
@@ -142,4 +142,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			name=#{name},sex=#{sex},password=#{password},phone=#{phone}
 			where teachernumber=#{teachernumber}
 		</update>
+		<!-- 查看得分 -->
+		<select id="getClassa" resultType="evaluation.entity.Teacher_V">
+    SELECT * FROM teacher_v WHERE teacher_v.teacherid=#{teacherid} ;
+    </select>
+     <select id="getClass" resultType="evaluation.entity.Teacher_V">
+    SELECT * FROM teacher_v WHERE teacher_v.teacherid=#{teacherid} ;
+    </select>
+    <select id="getScore" resultType="evaluation.entity.Score_V">
+    select * from score_v where score_v.teachingid=#{teachingid} and score_v.classid=#{classid};
+    </select>
 </mapper>

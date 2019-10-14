@@ -18,6 +18,7 @@ import evaluation.entity.Result;
 import evaluation.entity.ResultMsg;
 import evaluation.entity.Score;
 import evaluation.entity.Teacher;
+import evaluation.entity.Teacher_V;
 import evaluation.service.ScoreService;
 import evaluation.service.TeacherService;
 
@@ -41,6 +42,12 @@ public class TeacherController {
 			ModelAndView mv = new ModelAndView("teacher/index");
 			return mv;
 		}
+//欢迎主页面
+		@RequestMapping("/welcome")
+		public ModelAndView welcome() {
+			ModelAndView mv = new ModelAndView("teacher/welcome");
+			return mv;
+				}
 	
 	/*//教师列表
 	@RequestMapping("/teacher-list")
@@ -111,10 +118,6 @@ public class TeacherController {
 		   }
 	 }
 	
-
-
-
-
 	//登录页面   
 
 	@RequestMapping("/teacherlist")
@@ -222,6 +225,7 @@ public class TeacherController {
 		//保存教师评价
 		@RequestMapping("questions")
 		public ModelAndView questions(int teacherid,int teachingid) {
+			System.out.println(teachingid);
 			Score score=new Score();
 			score.setTeacherid(teacherid);
 			score.setTeachingid(teachingid);
@@ -262,6 +266,17 @@ public class TeacherController {
 					}else {
 						return new ResultMsg(2, "修改失败");
 					}
+				}
+				
+				//查看得分
+				@RequestMapping("score")
+				public  ModelAndView getClass(int teacherid) {
+					List<Object> Tv=teacherService.getClassa(teacherid);
+					List<Teacher_V> Tv1=teacherService.getClass(teacherid);
+					ModelAndView mView=new ModelAndView("teacher/score");
+					mView.addObject("Tv", Tv);
+					mView.addObject("Tv1", Tv1);
+					return mView;
 				}
 }
 

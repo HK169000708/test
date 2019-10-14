@@ -35,11 +35,7 @@
 		<div class="layui-row layui-col-space15">
 			<div class="layui-col-md12">
 				<div class="layui-card">
-					
-
-
-					
-					<div class="layui-card-body layui-table-body layui-table-main">
+									<div class="layui-card-body layui-table-body layui-table-main">
 						<table class="layui-table" lay-filter="mylist" lay-size="lg">
 							<thead>
 								<tr>
@@ -58,7 +54,7 @@
 									<tr>
 										<td>${item.teachernumber}</td>
 										<td>${item.name}</td>
-										
+									
 								    	<td class="td-manage">
 											<button class="layui-btn layui-btn "
 												onclick="xadmin.open('评价','${pageContext.request.contextPath}/teacher/questions?teacherid=${teacherid}&teachingid=${item.teaching.teachingid}',1400,700 )"

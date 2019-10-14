@@ -96,7 +96,7 @@
                             </li>  
                         </ul>
                     </li>                                 
-                    <li>
+                    <!-- <li>
                         <a href="javascript:;">
                             <i class="layui-icon left-nav-li" lay-tips="得分管理">&#xe63c;</i>
                             <cite>得分管理</cite>
@@ -108,7 +108,7 @@
                                     <cite>查看得分</cite></a>
                             </li>   
                         </ul>
-                    </li>      
+                    </li>  -->     
                 </ul>        
             </div>
         </div>
@@ -128,7 +128,7 @@
                 </div>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
-                        <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                        <iframe src='welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
                     </div>
                 </div>
                 <div id="tab_show"></div>

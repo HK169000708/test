@@ -1,5 +1,8 @@
 package evaluation.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,7 @@ public class StudentService {
 	private StudentDao studentDao;
 
 	// 查询所有
-	public List<Student> getStus() {
+	public List<Student> getStus() throws ParseException  {
 		return studentDao.getStus();
 	}
 

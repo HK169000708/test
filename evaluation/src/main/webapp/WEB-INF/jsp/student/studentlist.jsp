@@ -20,7 +20,7 @@
 	function update(studentid) {
 		location.href = "${pageContext.request.contextPath}/student/studentedit?studentid="
 				+ studentid;
-		alert(studentid)
+		
 	}
 </script>
 <style type="text/css">
@@ -101,7 +101,7 @@
 										<td>${item.cla.classname}</td>
 										<td id="bir${item.studentid}" name="bird"><fmt:formatDate
 												value="${item.birthday }" pattern="yyyy-MM-dd" />
-												</td>
+										</td>
 										<td id="b${item.studentid}" name="nl"></td>
 
 										<td class="td-manage">

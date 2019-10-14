@@ -39,12 +39,13 @@ public class StudentController {
 	private ScoreService scoreService;
 	//学生列表
 	@RequestMapping("/studentlist")
-	public ModelAndView studentlist() {
+	public ModelAndView studentlist() throws ParseException {
 		List<Student> students = getStus.getStus();
 		ModelAndView mv = new ModelAndView("student/studentlist");
 		mv.addObject("students", students);
 		return mv;
 	}
+	
 	
 	@RequestMapping("studentlogin")
 	 public ModelAndView  studentlogin(Model model,Student student){
@@ -60,7 +61,11 @@ public class StudentController {
 		}
 	}
 	
-	
+	@RequestMapping("/welcome")
+	public ModelAndView welcome() {
+		ModelAndView mv = new ModelAndView("student/welcome");
+		return mv;
+	}
 	
 	//学生登录
 	@RequestMapping("/login")

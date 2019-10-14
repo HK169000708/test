@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       
       <select id="getStus" resultMap="studentm">
       	select * from student,classtb where
-		student.classid=classtb.classid order by student.studentid desc
+		student.classid=classtb.classid 
       </select>
       
 <!-- 根据id查询学生 -->
